@@ -1,4 +1,4 @@
-# LEVEL 1 REPORT
+# LEVEL 2 REPORT
 # Electronic Design
 
 >## TASK 2: Blue Pill Reloaded
@@ -402,7 +402,7 @@ module tb_rca_4bit;
         #100 a = 4'b1010; b = 4'b0101; cin = 1;
 
         // Wait for worst-case propagation delay before finishing.
-        // 4 full adders in series. Each FA has a max delay of ~18ns (3ns XOR + 3ns XOR + 3ns AND + 3ns OR).
+        // 4 full adders in series. Each FA has a max delay of ~18ns 
         // 4 * 18ns = 72ns. Waiting 100ns ensures all signals settle.
         #100 $finish;
     end
@@ -481,7 +481,7 @@ endmodule
 
 #### 5. Cellular Automation - 90 Rule
 
-The circuit adds two 4-bit binary numbers along with an input carry to produce a 4-bit sum and a final carry output. It uses four full-adder stages connected in sequence, where the carry generated at each stage propagates to the next stage. Gate propagation delays affect the time taken for the final output to stabilise.
+A Cellular Automaton using Rule 90 is a mathematical model consisting of binary cells that evolve over time according to a simple rule. Each cell's next state is determined by the XOR of its left and right neighbours. In this 16-bit implementation, wrap-around boundary conditions connect the first and last cells. An initial binary pattern (seed) is loaded and updated on every rising clock edge, demonstrating combinational logic, sequential circuits, and pattern generation using Verilog.
 
 implementation code:
 
@@ -852,34 +852,44 @@ Reprogrammable → flexible
 4. I/O Blocks (Input/Output Pads)
    Allow signals to enter and leave the FPGA
    
-###### How everything works together:
-Input comes from I/O
-Goes to LUT (logic happens)
-Output stored in Flip-Flop
-Sent through wires to other blocks or output
+
 
 ###### Advanced Features (Modern FPGA):
 Besides basic blocks, modern FPGAs also include:
+
 Block RAM → built-in memory
+
 DSP slices → fast math operations
+
 PLL (Phase-Locked Loop) → controls clock speed
+
 High-speed communication modules
+
 Memory controllers
+
 These make FPGA very powerful (almost like a custom processor)
 
 ###### About Xilinx:
 One of the leading FPGA companies
 Their FPGAs can even:
+
 Run operating systems like Linux
+
 Include embedded processors
 
 ###### Applications:
 Basically, wherever high-speed and flexible hardware is needed:
+
 Automotive systems (self-driving, sensors)
+
 Communication (5G, networking)
+
 Medical devices
+
 Video processing & broadcasting
+
 AI & data centers
+
 Aerospace & defense
 
 #### Detailed understanding of FPGA architecture:
@@ -926,13 +936,19 @@ To build a simple, single FPGA tile and simulate it using Verilog
 
 `Theory:`
 
-An FPGA tile was implemented using Verilog HDL based on the architecture specified in the previous task. The switch matrix consists of four 4:1 multiplexers that provide programmable routing between the four input signals and four output signals. The Configurable Logic Block (CLB) was designed by instantiating a 4-input Look-Up Table (LUT), a D flip-flop, and a 2:1 multiplexer to support configurable combinational and registered outputs. Finally, the top-level `fpga_tile` module integrates the switch matrix and CLB to form a complete FPGA tile, which was tested through simulation using different LUT configurations, routing selections, and control signals.
+An FPGA tile was implemented using Verilog HDL based on the architecture specified in the previous task. The 4x4 switch matrix consists of four 4:1 multiplexers that provide programmable routing between the four input signals and four output signals. The Configurable Logic Block (CLB) was designed by instantiating a 4-input Look-Up Table (LUT), a D flip-flop, and a 2:1 multiplexer to support configurable combinational and registered outputs. Finally, the top-level `fpga_tile` module integrates the switch matrix and CLB to form a complete FPGA tile, which was tested through simulation using different LUT configurations, routing selections, and control signals.
 
 ![sim_o/p](https://raw.githubusercontent.com/LakshithaV419/Images/main/fpga_tile.png)
 
+LUT Config for an odd number of one's detector:
+
 ![lut1](https://raw.githubusercontent.com/LakshithaV419/Images/main/lutconfig1.png)
 
+LUT Config for a majority detector:
+
 ![lut2](https://raw.githubusercontent.com/LakshithaV419/Images/main/lutconfig2.png)
+
+link to [github repo of code](https://github.com/LakshithaV419/FPGA-Tile-/edit/main/README.md)
 
 `Outcome:` 
 
@@ -981,7 +997,7 @@ I learned to use electric binary. I learnt the working of CMOS Inverter and Op-A
 
 `Objective:` 
 
-To in stall and configure ROS 2 Humble on Ubuntu 22.04 and understand the fundamentals of ROS 2 communication by creating publisher and subscriber nodes and testing them using the Turtlesim simulator.
+To install and configure ROS 2 Humble on Ubuntu 22.04 and understand the fundamentals of ROS 2 communication by creating publisher and subscriber nodes and testing them using the Turtlesim simulator.
 
 `Theory:`
 
